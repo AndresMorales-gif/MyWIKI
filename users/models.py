@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from utils.models import WikiModel
 # Create your models here.
 
-class User(WikiModel, AbstractUser):
+class Users(WikiModel, AbstractUser):
     
     email = models.EmailField(
         'email address',

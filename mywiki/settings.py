@@ -32,7 +32,7 @@ DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 # Users & Authentication
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.Users'
 
 # Application definition
 
@@ -128,6 +128,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+#Django rest framework
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
