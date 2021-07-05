@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class WikiModel(models.Model):
     created_at = models.DateTimeField(
         'created at',
@@ -16,4 +17,3 @@ class WikiModel(models.Model):
         abstract = True
         get_latest_by = 'created_at'
         ordering = ['-created_at', '-modified_at']
-

@@ -91,16 +91,13 @@ WSGI_APPLICATION = 'mywiki.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wiki',
-        'USER': 'mywikiuser',
-        'PASSWORD': 'mywikipass147258',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default': env.db()
 }
 
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -129,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-#Django rest framework
+# Django rest framework
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',

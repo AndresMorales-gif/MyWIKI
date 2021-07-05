@@ -4,8 +4,9 @@ from rest_framework.response import Response
 
 from users.serializers import UserLoginSerializer
 from users.serializers import UserModelSerializer
+
+
 class UserLoginAPIView(APIView):
-    
 
     def post(self, request):
         serializers = UserLoginSerializer(data=request.data)

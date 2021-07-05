@@ -4,8 +4,9 @@ from django.contrib.auth.models import AbstractUser
 from utils.models import WikiModel
 # Create your models here.
 
+
 class Users(WikiModel, AbstractUser):
-    
+
     email = models.EmailField(
         'email address',
         unique=True,
@@ -25,5 +26,3 @@ class Users(WikiModel, AbstractUser):
 
     def __str__(self):
         return self.username
-
-    
