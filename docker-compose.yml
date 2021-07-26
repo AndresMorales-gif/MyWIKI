@@ -1,0 +1,30 @@
+version: '3.7'
+
+services: 
+    app: &app
+        build: 
+            context: .
+            dockerfile: ./docker/app/Dockerfile
+        image: mywiki_app
+        command: /start
+        depends_on:
+            - db
+        volumes: 
+            - .:/app
+        env_file: 
+            - ./docker/app/.env
+            - ./docker/postgresql/.env
+        ports:
+            - 8000:8000
+
+    db:
+        image: postgres        
+        env_file:
+            - ./docker/postgresql/.env
+        volumes:
+            - mywiki_postgres_data:/var/lib/postgresql/data/
+        ports:
+            - 5432:5432
+
+volumes:
+    mywiki_postgres_data: {}
